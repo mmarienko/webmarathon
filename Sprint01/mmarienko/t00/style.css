@@ -1,0 +1,11 @@
+img {
+  float: left;
+  margin: 15px;
+  max-width: 100%;
+}
+
+@media print {
+  img {
+    float: none;
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>RegExp and Cookies</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="t08. RegExp and Cookies">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+      <h1>RegExp & Cookies</h1>
+      <div class="form">
+          <div class="form__handlers">
+            <button class="form__button" onclick="parsePhone()" id="phone">To phone number [0]</button>
+            <button class="form__button" onclick="wordCount()" id="count">Word count [0]</button>
+            <button class="form__button" onclick="wordReplace()" id="replace">Word replace [0]</button>
+          </div>
+          <div class="form__body">
+            <label class="form__label">
+              <p>Word input:</p>
+              <input id="word">
+            </label>
+            <label class="form__label">
+              <p>Text input:</p>
+              <textarea  id="text"></textarea>
+            </label>
+          </div>
+          <div class="form__footer">
+            <label class="form__label">
+              <p> Output:</p>
+               <input id="output" type="text" readonly/>
+             </label>
+          </div>
+      </div>
+      <script src="js/script.js"></script>
+    </body>
+</html>

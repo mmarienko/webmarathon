@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  width: 100%;
+  border-bottom: 1px solid #000;
+  background: cornflowerblue;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: 'Franklin Gothic Medium', Arial;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+nav > ul > li > a {
+  display: block;
+  width: 100%;
+  padding: 2px 15px;
+  background: cyan;
+  transition: .3s;
+}
+
+nav > ul > li {
+  position: relative;
+  width: 100%;
+}
+
+nav > ul > li:hover > a {
+  background: lightgoldenrodyellow;
+}
+
+nav > ul > li > ul {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: lightblue;
+}
+
+nav > ul > li:hover > ul{
+  visibility: visible;
+  opacity: 1;
+}
+
+nav > ul > li > ul {
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+} 
+
+nav > ul > li > ul > li {
+  position: relative;
+}
+
+nav > ul > li > ul > li > a {
+  display: inline-block;
+  width: 100%;
+}
+
+nav > ul > li > ul > li > a:hover {
+  background: lightgreen;
+} 
+
+nav > ul > li > ul > li:hover ul{
+  visibility: visible;
+  opacity: 1;
+}
+
+nav > ul > li > ul > li > ul {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+} 
+
+nav > ul > li > ul > li > ul > li > a {
+  display: inline-block;
+  width: 100%;
+  background: mediumspringgreen;
+}
+
+nav > ul > li > ul > li > ul > li > a:hover {
+  background: mediumturquoise;
+}

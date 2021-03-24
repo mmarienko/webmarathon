@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Slideshow</title>
+    <meta name="description" content="t03. Slideshow" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <h1>Slideshow</h1>
+    <div class="slider" id="slider">
+      <div class="slider__container">
+        <div class="slider__img"><img src="assets/1.jpeg" alt=""></div>
+        <div class="slider__img"><img src="assets/2.jpeg" alt=""></div>
+        <div class="slider__img"><img src="assets/3.jpeg" alt=""></div>
+        <div class="slider__img"><img src="assets/4.jpeg" alt=""></div>
+      </div>
+      <button class="slider__arrow slider__arrow--prev" onclick="slider.prev()">
+        <img src="assets/arrow.svg" alt="">
+      </button>
+      <button class="slider__arrow slider__arrow--next" onclick="slider.next()">
+        <img src="assets/arrow.svg" alt="">
+      </button>
+    </div>
+  </body>
+</html>

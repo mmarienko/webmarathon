@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LocalStorage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="t09. LocalStorage">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+      <h1>LocalStorage</h1>
+      <div class="form">
+          <div class="form__handlers">
+            <button class="form__button" onclick="addToLocalStorage()">Add to storage</button>
+            <button class="form__button form__button--reset" onclick="clearLocalStorage()">Clear storage</button>
+          </div>
+          <div class="form__body">
+            <label class="form__label">
+              <p>Text input:</p>
+              <textarea id="textarea"></textarea>
+            </label>
+          </div>
+          <div class="form__footer">
+            <label class="form__label">
+              <p> History:</p>
+              <div id="output"></div>
+            </label>
+          </div>
+      </div>
+      <script src="js/script.js"></script>
+    </body>
+</html>

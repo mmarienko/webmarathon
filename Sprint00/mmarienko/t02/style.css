@@ -1,0 +1,24 @@
+.search{
+  display: flex;
+  height: 2em;
+}
+
+input {
+  padding: 0 10px;
+  color: green;
+  width: 100%;
+}
+
+input:hover{
+  color: red;
+}
+
+button {
+  text-transform: uppercase;
+  color: green;
+  padding: 0 10px;
+}
+
+button:hover{
+  color: red;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>t10</title>
+  </head>
+  <body>
+    <h1>Setting</h1>
+    <input
+      type="checkbox"
+      id="settings__switch-checkbox"
+      onchange="langChange()"
+    />
+    <form class="settings" action="#">
+      <div class="settings__content">
+        <div class="settings__row">
+          <div class="settings__item">
+            <h2 class="settings__item-title">Typeface</h2>
+            <select>
+              <option selected>Acunim Pro</option>
+              <option>Comic Sans</option>
+              <option disabled>Times New Roman</option>
+            </select>
+          </div>
+          <div class="settings__item setting__item--row">
+            <h2 class="settings__item-title">Dark UI</h2>
+            <label class="settings__switch" for="settings__switch-checkbox">
+              <span class="settings__switch-round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="settings__row">
+          <div class="settings__item">
+            <h2 class="settings__item-title">Weight</h2>
+            <div class="settings__checkboxs">
+              <label class="settings__checkbox">
+                <input type="checkbox" />
+                <span>Regular</span>
+              </label>
+              <label class="settings__checkbox">
+                <input type="checkbox" />
+                <span>Bold</span>
+              </label>
+            </div>
+          </div>
+          <div class="setting__item">
+            <h2 class="settings__item-title">Color</h2>
+            <div class="setting__colors">
+              <label class="setting__color-pick">
+                <input type="checkbox" />
+                <span
+                  class="setting__color-round"
+                  style="background: rgb(70, 115, 211)"
+                ></span>
+                <span class="setting__color-tick">&#10003;</span>
+              </label>
+              <label class="setting__color-pick">
+                <input type="checkbox" checked />
+                <span
+                  class="setting__color-round"
+                  style="background: #50aa98"
+                ></span>
+                <span class="setting__color-tick">&#10003;</span>
+              </label>
+              <label class="setting__color-pick">
+                <input type="checkbox" />
+                <span
+                  class="setting__color-round"
+                  style="background: rgb(248, 127, 242)"
+                ></span>
+                <span class="setting__color-tick">&#10003;</span>
+              </label>
+              <label class="setting__color-pick">
+                <input type="checkbox" />
+                <span
+                  class="setting__color-round"
+                  style="background: rgb(255, 243, 82)"
+                ></span>
+                <span class="setting__color-tick">&#10003;</span>
+              </label>
+              <label class="setting__color-pick">
+                <input type="checkbox" checked />
+                <span
+                  class="setting__color-round"
+                  style="background: rgb(245, 174, 68)"
+                ></span>
+                <span class="setting__color-tick">&#10003;</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="settings__row">
+          <div class="settings__item">
+            <h2 class="settings__item-title">Size</h2>
+            <div class="setting__range">
+              <input type="range" value="40" />
+              <div class="setting__range-row"><span>A</span><span>A</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="settings__menu">
+        <div class="settings__buttons">
+          <div class="settings__action">
+            <img src="assets/images/artistic-brush.png" alt="" />
+          </div>
+          <div class="settings__action">
+            <img src="assets/images/user-icon.png" alt="" />
+          </div>
+          <div class="settings__action">
+            <img src="assets/images/sms-speech-bubble.png" alt="" />
+          </div>
+          <div class="settings__action">
+            <img src="assets/images/computer-screen.png" alt="" />
+          </div>
+        </div>
+      </aside>
+    </form>
+  </body>
+</html>

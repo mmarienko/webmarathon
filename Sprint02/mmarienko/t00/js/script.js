@@ -1,0 +1,2 @@
+var message = 'Hello JavaScript from outside'; //JavaScript variables are containers for storing data values.
+alert(message); //The alert() method displays an alert box with a specified message and an OK button.

@@ -1,0 +1,61 @@
+body {
+  background-color: #333;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  color: white;
+}
+li {
+  list-style: none;
+  display: inline-block;
+  background-color: lightgrey;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10%;
+  text-align: center;
+  border: none;
+  width: 120px;
+}
+.good {
+  border: 3px solid#59a440;
+}
+.evil {
+  border: 3px solid#ba2d29;
+}
+.unknown {
+  border: 3px solid#764cae;
+}
+.elem {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin: 3px;
+}
+.air {
+  background-color: #5a8de1;
+}
+.water {
+  background-color: #0f1b8b;
+}
+.earth {
+  background-color: #496b2e;
+}
+.fire {
+  background-color: #9f000e;
+}
+.none {
+  background-color: lightgrey;
+}
+.line {
+  position: relative;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  border-radius: 0;
+  top: 9px;
+  transform: rotate(-225deg);
+}

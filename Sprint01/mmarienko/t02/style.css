@@ -1,0 +1,12 @@
+img {
+  width: 100px;
+  transition: .3s;
+}
+
+.hand {
+  width: 200px;
+}
+
+.hand:hover + .people .people__row:nth-child(2n+1) img:nth-child(2n + 1), .hand:hover + .people .people__row:nth-child(2n) img:nth-child(2n){
+  opacity: 0;
+}

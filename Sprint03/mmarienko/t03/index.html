@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Upgrade Human</title>
+    <meta name="description" content="t03. Upgrade Human" />
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <div class="hero__wrapper">
+      <h1>Upgrade Human</h1>
+      <div class="hero__img">
+        <img id="hero" src="assets/img/hero.gif" alt=""/>
+      </div>
+      <div class="hero__descr">
+        <p>First Name: <span id="firstName"></span></p>
+        <p>Last Name: <span id="lastName"></span></p>
+        <p>Gender: <span id="gender"></span></p>
+        <p>Age: <span id="age"></span></p>
+        <p>Calories <span id="calories"></span></p>
+      </div>
+      <div class="hero__message" id="message">
+         Hello
+      </div>
+      <div class="hero__buttons">
+        <button onclick="human.sleepFor()" id="sleep" class="hero__btn">Sleep</button>
+        <button onclick="human.fight()" id="fight" class="hero__btn">Fight</button>
+        <button onclick="human.chill()" id="chill" class="hero__btn">Chill</button>
+        <button onclick="human.feed()" id="feed" class="hero__btn">Feed</button>
+        <button onclick="human.fightWithEvil()" id="evil" class="hero__btn" style="display: none;"">Fight With Evil</button>
+        <button onclick="human.fly()" id="fly" class="hero__btn" style="display: none;">Fly</button>
+        <button  id="super" class="hero__btn">Turn into superhero</button>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/test.js"></script> uncomment this line when testing -->
+  </body>
+</html>

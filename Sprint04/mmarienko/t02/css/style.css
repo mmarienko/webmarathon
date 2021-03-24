@@ -1,0 +1,39 @@
+#placeholder {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+#placeholder table {
+   text-align: center;
+   border: 5px solid #000;
+}
+
+#placeholder table thead {
+   background: rgb(228, 41, 41);
+}
+
+#placeholder table thead th {
+   padding: 10px;
+   cursor: pointer;
+   transition: .3s;
+}
+
+#placeholder table thead th:hover {
+   background: rgb(255, 126, 126);
+}
+
+#placeholder table tbody td {
+   width: 55px;
+   padding: 10px 20px;
+   background: rgb(218, 218, 218);
+}
+
+#notification {
+   position: absolute;
+   right: 0;
+   top: 0;
+   background: rgb(128, 128, 128);
+   padding: 10px 20px;
+   border-radius: 50px;
+   margin: 10px;
+}

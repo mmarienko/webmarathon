@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main id="main_block">
+
+      <header>
+        <div>
+           <span id="caption">Calculator</span>
+           <div id="chooseSys">
+               <span 
+               onclick="systemActiveSwitcher()" 
+               id="currentSys"><a>DEC</a></span>
+               <div id="cooseOf">
+                   <!-- <div class="chooseSys__area" onclick="this.parentNode.classList.toggle('active')"></div> -->
+                   <div class="chooseSys__content">
+                        <span><a onclick="changeSys(this)">BIN</a></span>
+                        <span><a onclick="changeSys(this)">HEX</a></span>
+                   </div>
+               </div>
+           </div>
+        </div>
+        
+        <img src="assets/img/history-clock-button.svg" alt="History">
+      </header>
+      
+
+        <div id="calculator_block">
+
+            <div id="input_block">
+                <div id="input_str"></div>
+                <input maxlength="100" id="result_str" type="text" readonly value="0" />
+            </div>
+
+            <div id="buttons_block">
+                <!-- <span id="contentBlocker" class="contentBlocker" onclick="addActive(document.querySelector('#popup .btn'))"></span> -->
+
+              <div id="popup" class="popup" >
+                <span class="btn" onclick="addActive(this)">    <img src="assets/img/arrow.svg" alt="icon">
+                </span>
+                <div class="popup__content">
+                  <span class="operation" id="operation_factorial" onclick="arithmeticOperation('!')"><a>x!</a></span>
+                  <span class="operation" id="operation_exponentiation" onclick="arithmeticOperation('^')"><a>xˆn</a></span>
+                  <span class="operation" id="operation_square_root" onclick="squareRoot()"><a>√x</a></span>
+                  <span class="operation" id="operation_memory_next" onclick="memoryPlus()"><a>M+</a></span>
+                  <span class="operation" id="operation_memory_last" onclick="memoryMinus()"><a>M-</a></span>
+                  <span class="operation" id="pi" onclick="addNewNumber('pi')"><a>&pi;</a></span>
+               
+                  <span class="operation" id="e" onclick="addNewNumber('e')"><a>e</a></span>
+                  <span class="operation" id="left_bracket" onclick="addNewNumber('(')"><a>(</a></span>
+                  <span class="operation" id="right_bracket" onclick="addNewNumber(')')"><a>)</a></span>
+
+                  <span class="drop-trigger operation" id="operation_convert_weights" onchange="convertWeight()"><a>CW</a>
+                    <div class="dropwindow">
+                   
+                        <div class="dropwindow__content">
+                            <div class="dropwindow__body">
+                                <div class="dropwindow__col">
+                                    <select id="weight_select_top">
+                                        <option value="grams">grams</option>
+                                        <option value="kilograms">kilograms</option>
+                                        <option value="tonnes">tonnes</option>
+                                    </select>
+                                </div>
+                                <div class="dropwindow__col">
+                                    <select id="weight_select_bottom">
+                                        <option value="grams">grams</option>
+                                        <option value="kilograms">kilograms</option>
+                                        <option value="tonnes">tonnes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="dropwindow__output" id="weight_ouput"></div>
+                        </div>
+                    </div></span>
+                  <span class="drop-trigger operation" id="operation_convert_area" onchange="convertArea()"><a>CA</a>
+                    <div class="dropwindow">
+                   
+                        <div class="dropwindow__content">
+                            <div class="dropwindow__body">
+                                <div class="dropwindow__col">
+                                    <select id="area_select_top">
+                                        <option value="centimeters^2">centimeters^2</option>
+                                        <option value="meters^2">meters^2</option>
+                                        <option value="kilometers^2">kilometers^2</option>
+                                    </select>
+                                </div>
+                                <div class="dropwindow__col">
+                                    <select id="area_select_bottom">
+                                        <option value="centimeters^2">centimeters^2</option>
+                                        <option value="meters^2">meters^2</option>
+                                        <option value="kilometers^2">kilometers^2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="dropwindow__output" id="area_output"></div>
+                        </div>
+                    </div></span>
+                  
+                  <span class="drop-trigger operation" id="operation_convert_lenght" onchange="convertLenght()"><a>CL</a>
+                    <div class="dropwindow">
+                   
+                        <div class="dropwindow__content">
+                            <div class="dropwindow__body">
+                                <div class="dropwindow__col">
+                                    <select id="length_select_top">
+                                        <option value="centimeters">centimeters</option>
+                                        <option value="meters">meters</option>
+                                        <option value="kilometers">kilometers</option>
+                                    </select>
+                                </div>
+                                <div class="dropwindow__col">
+                                    <select id="length_select_bottom">
+                                        <option value="centimeters">centimeters</option>
+                                        <option value="meters">meters</option>
+                                        <option value="kilometers">kilometers</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="dropwindow__output"  id="length_output"></div>
+                        </div>
+                    </div></span>
+                </div>
+              </div>
+              <div id="popup" class="reverse popup" >
+                <span class="btn" onclick="addActive(this)">    <img src="assets/img/arrow.svg" alt="icon">
+                </span>
+                <div class="popup__content">
+                  <span class="operation" id="" onclick="addNewNumber('A')"><a>A</a></span>
+                  <span class="operation" id="" onclick="addNewNumber('B')"><a>B</a></span>
+                  <span class="operation" id="" onclick="addNewNumber('C')"><a>C</a></span>
+                  <span class="operation" id="" onclick="addNewNumber('D')"><a>D</a></span>
+                  <span class="operation" id="" onclick="addNewNumber('E')"><a>E</a></span>
+                  <span class="operation" id="" onclick="addNewNumber('F')"><a>F</a></span>
+                </div>
+              </div>
+              
+                <div id="buttons_table">
+                    <div id="topRow">
+                        <span class="operation" id="MC" onclick="memoryClear()"><a>MC</a></span>
+                        <span class="operation" id="MS" onclick="memoryStore()"><a>MS</a></span>
+                        <span class="operation" id="MR" onclick="memoryRecall()"><a>MR</a></span>
+                        <span class="number" id="backspace" onclick="backspace()"><a><img src="assets/img/backspace.svg" alt="Back"></a></span>
+                    </div>
+                    <div>
+                        <span class="operation" id="operation_clear" onclick="reset()"><a>C</a></span>
+                        <span class="operation" id="operation_plus-minus" onclick="toggleNumber()"><a>±</a></span>
+                        <span class="operation" id="operation_division" onclick="arithmeticOperation('/')"><a>/</a></span>
+                        <span class="number" id="number_multiple" onclick="arithmeticOperation('*')"><a>*</a></span>
+                    </div>
+                    <div>
+                        <span class="number" id="number_seven" onclick="addNewNumber(7)"><a>7</a></span>
+                        <span class="number" id="number_eight" onclick="addNewNumber(8)"><a>8</a></span>
+                        <span class="number" id="number_nine" onclick="addNewNumber(9)"><a>9</a></span>
+                        <span class="number" id="number_minus" onclick="arithmeticOperation('-')"><a>-</a></span>
+                    </div>
+                    <div>
+                        <span class="number" id="number_four" onclick="addNewNumber(4)"><a>4</a></span>
+                        <span class="number" id="number_five" onclick="addNewNumber(5)"><a>5</a></span>
+                        <span class="number" id="number_six" onclick="addNewNumber(6)"><a>6</a></span>
+                        <span class="number" id="number_plus" onclick="arithmeticOperation('+')"><a>+</a></span>
+                    </div>
+                    <div>
+                        <span class="number" id="number_one" onclick="addNewNumber(1)"><a>1</a></span>
+                        <span class="number" id="number_two" onclick="addNewNumber(2)"><a>2</a></span>
+                        <span class="number" id="number_three" onclick="addNewNumber(3)"><a>3</a></span>
+        
+                    </div>
+                    <div>
+                        <span class="operation" id="operation_percent" onclick="percent()"><a>%</a></span>
+                        <span class="number" id="number_zero" onclick="addNewNumber(0)"><a>0</a></span>
+                        <span class="symbol" id="dot" onclick="addNewNumber('.')"><a>.</a></span>
+                        <span class="operation" id="operation_equal" rowspan="2" onclick="equals()"><a>=</a></span>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+
+</body>
+
+</html>

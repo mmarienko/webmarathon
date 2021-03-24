@@ -1,0 +1,91 @@
+h1 {
+   text-align: center;
+}
+
+.marvelous{
+   margin: 20px;
+}
+
+.marvelous__inner{
+   display: flex;
+   background: rgb(231, 231, 231);
+   padding: 15px;
+}
+
+.marvelous__tabs{
+   flex: 1 0 250px;
+   text-align: center;
+}
+
+.marvelous__button {
+   padding: 10px 10px;
+   cursor: pointer;
+   border-left: 5px solid transparent;
+   transition: .3s;
+}
+
+.marvelous__button:hover{
+   border-color: rgb(144, 196, 255);
+}
+
+.marvelous__button.active{
+   border-color: rgb(13, 123, 250);
+}
+.marvelous__body{
+   border-left: 1px solid #fff;
+   padding-left: 40px;
+}
+.marvelous__content{
+   display: none;
+}
+
+.marvelous__content.active {
+   display: flex;
+}
+
+.marvelous__img {
+   width: 270px;
+   height: 400px;
+   vertical-align: middle;
+   flex-shrink: 0;
+}
+
+.marvelous__img img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+.marvelous__title{
+   margin-bottom: 0;
+}
+
+.marvelous__subtitle{
+   margin-top: 5px;
+   font-size: 16px;
+   font-weight: normal;
+   margin-bottom: 0;
+}
+
+.marvelous__actors{
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.marvelous__actor{
+   padding: 10px;
+   border-radius: 10px;
+   background: rgb(13, 123, 250);
+   color: #fff;
+   margin-top: 10px;
+   margin-right: 20px;
+}
+
+.marvelous__descr{
+   padding-right: 20px;
+   padding-bottom: 10px;
+   line-height: 20px;
+}

@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap-grid.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+
+    <title>Catalog Products Page</title>
+  </head>
+
+  <body>
+    <header class="header" id="header">
+      <div class="container-xl">
+        <div class="header__inner">
+          <button
+            class="header__burger burger"
+            id="header__burger"
+            onclick="burgerChange()"
+          >
+            <span class="burger__inner">
+              <span></span>
+            </span>
+          </button>
+          <a href="#" class="header__logo">
+            <img loading="lazy" src="assets/images/logo.png" alt="" />
+          </a>
+          <div class="header__menu" id="header__menu">
+            <div class="header__nav" id="header__nav">
+              <ul>
+                <li><a href="index.html">Каталог</a></li>
+                <li><a href="#">О компании</a></li>
+                <li><a href="#">Бренды</a></li>
+                <li><a href="#">Проекты</a></li>
+                <li>
+                  <a href="#">Сотрудничество</a>
+                </li>
+                <li><a href="#">Контакты</a></li>
+              </ul>
+            </div>
+            <div class="header__tel">
+              <a href="tel:+380442995707">+ 38 (044) 299 57 07</a>
+            </div>
+            <div class="header__lang switch-lang">
+              <label class="switch-lang__inner" for="switch-lang__checkbox">
+                <span class="switch-lang__ua" id="switch-lang__ua">UA</span>
+                <input
+                  type="checkbox"
+                  id="switch-lang__checkbox"
+                  onchange="langChange()"
+                />
+                <span class="switch-lang__round"></span>
+                <span class="switch-lang__ru" id="switch-lang__ru">RU</span>
+              </label>
+            </div>
+          </div>
+          <div class="header__cart cart">
+            <div class="cart__inner">
+              <span class="cart__title">В корзине</span>
+              <span class="cart__body">2 товара - 5 459 грн</span>
+              <button
+                onclick="togglePopup('popup-cart')"
+                class="cart__link accent-btn"
+              >
+                Оформить
+              </button>
+            </div>
+          </div>
+          <button
+            onclick="togglePopup('popup-cart')"
+            class="header__cart-mobile cart-mobile"
+          >
+            <span class="cart-mobile__inner">
+              <img src="assets/images/sprite.svg#cart" alt="" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="breadcrumbs">
+      <div class="container-xl">
+        <div class="breadcrumbs__inner">
+          <div class="breadcrumbs__box" id="breadcrumbs__box"></div>
+          <ol class="breadcrumbs__list" id="breadcrumbs__list">
+            <li><a href="#">Главная</a></li>
+            <li>Каталог</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <button class="overlay" id="overlay" onclick="burgerChange()"></button>
+    <main class="main">
+      <section class="catalog">
+        <div class="top">
+          <div class="container-xl">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-8">
+                <h1 class="top__title upp-title">Каталог товаров</h1>
+              </div>
+            </div>
+          </div>
+          <img loading="lazy" src="assets/images/cap-1.jpg" alt="" />
+        </div>
+        <div class="catalog__wrapper">
+          <div class="container-xl">
+            <div class="row">
+              <div class="col-12">
+                <div class="catalog__top filter-type">
+                  <div
+                    class="simple-arrow filter-type__button-prev"
+                    id="filter-type__button-prev"
+                  >
+                    <img src="assets/images/sprite.svg#arrow" alt="" />
+                  </div>
+                  <div
+                    class="filter-type__container swiper-container"
+                    id="filter-type__slider"
+                  >
+                    <div class="filter-type__wrapper swiper-wrapper">
+                      <a href="#" class="filter-type__item swiper-slide">
+                        <div class="filter-type__img">
+                          <img
+                            src="assets/images/sprite.svg#geosynthetic"
+                            alt=""
+                          />
+                        </div>
+                        <h2 class="filter-type__title">Геосинтетические</h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide active">
+                        <div class="filter-type__img">
+                          <img src="assets/images/sprite.svg#facade" alt="" />
+                        </div>
+                        <h2 class="filter-type__title">Фасадная облицовка</h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide active">
+                        <div class="filter-type__img">
+                          <img
+                            src="assets/images/sprite.svg#heat-and-noise"
+                            alt=""
+                          />
+                        </div>
+                        <h2 class="filter-type__title">Тепло-шумоизоляция</h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide">
+                        <div class="filter-type__img">
+                          <img
+                            src="assets/images/sprite.svg#hydro-vapor"
+                            alt=""
+                          />
+                        </div>
+                        <h2 class="filter-type__title">Гидро-пароизоляция</h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide">
+                        <div class="filter-type__img">
+                          <img src="assets/images/sprite.svg#mansard" alt="" />
+                        </div>
+                        <h2 class="filter-type__title">
+                          Мансардные окна и люки
+                        </h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide">
+                        <div class="filter-type__img">
+                          <img src="assets/images/sprite.svg#roofing" alt="" />
+                        </div>
+                        <h2 class="filter-type__title">Кровельные материалы</h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide">
+                        <div class="filter-type__img">
+                          <img src="assets/images/sprite.svg#facade" alt="" />
+                        </div>
+                        <h2 class="filter-type__title">Фасадная облицовка</h2>
+                      </a>
+                      <a href="#" class="filter-type__item swiper-slide active">
+                        <div class="filter-type__img">
+                          <img src="assets/images/sprite.svg#mansard" alt="" />
+                        </div>
+                        <h2 class="filter-type__title">
+                          Мансардные окна и люки
+                        </h2>
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    class="simple-arrow filter-type__button-next"
+                    id="filter-type__button-next"
+                  >
+                    <img src="assets/images/sprite.svg#arrow" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-lg-3 order-1 order-md-0">
+                <aside class="aside">
+                  <div class="aside__inner">
+                    <div
+                      class="aside__filters filters d-none d-md-block"
+                      id="filters"
+                    >
+                      <div class="filters__inner">
+                        <h2 class="filters__title">Фильтры</h2>
+                        <div class="filters__accord active">
+                          <div
+                            class="filters__accord-top"
+                            onclick="this.parentNode.classList.toggle('active')"
+                          >
+                            <span>Тип инженерной системы</span>
+                            <img src="assets/images/sprite.svg#arrow" alt="" />
+                          </div>
+                          <div class="filters__accord-content">
+                            <ul>
+                              <li>
+                                <label>
+                                  <input type="checkbox" />
+                                  <span>Наружные инженерные системы (2)</span>
+                                </label>
+                              </li>
+                              <li>
+                                <label
+                                  ><input type="checkbox" /><span
+                                    >Внутренние инженерные системы (2)</span
+                                  ></label
+                                >
+                              </li>
+                              <li>
+                                <label
+                                  ><input type="checkbox" /><span
+                                    >Техническая изоляция (2)</span
+                                  ></label
+                                >
+                              </li>
+                              <li>
+                                <label
+                                  ><input type="checkbox" /><span
+                                    >Спец решения (2)</span
+                                  ></label
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="filters__accord active">
+                          <div
+                            class="filters__accord-top"
+                            onclick="this.parentNode.classList.toggle('active')"
+                          >
+                            <span>Цена</span>
+                            <img src="assets/images/sprite.svg#arrow" alt="" />
+                          </div>
+                          <div class="filters__accord-content">
+                            <div
+                              class="filters__range"
+                              id="filters__range"
+                              data-min="0"
+                              data-max="50000"
+                            ></div>
+                            <div
+                              class="filters__range-inputs"
+                              id="filters__range-inputs"
+                            >
+                              <input type="text" value="0" />
+                              <input type="text" value="50000" />
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          onclick="clearRange()"
+                          class="filters__clear smoke-btn"
+                        >
+                          <img src="assets/images/sprite.svg#trash" alt="" />
+                          <span>Очистить фильтр</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="aside__subscription subscription">
+                      <div class="subscription__inner">
+                        <div class="subscription__img">
+                          <img
+                            src="assets/images/sprite.svg#subscription"
+                            alt=""
+                          />
+                        </div>
+                        <h2 class="subscription__title">
+                          Будь в курсе наших
+                          <span class="weight-700">акций и новостей</span>
+                        </h2>
+                        <button
+                          onclick="togglePopup('popup-subscription')"
+                          class="subscription__btn smoke-btn"
+                        >
+                          Подписаться
+                        </button>
+                      </div>
+                    </div>
+                    <div class="aside__question question">
+                      <div
+                        class="question__inner"
+                        onsubmit="togglePopup('popup-cart')"
+                      >
+                        <div class="question__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/avatar.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h2 class="question__subtitle">Ваш менеджер</h2>
+                        <h3 class="question__title">Иван Иванов</h3>
+                        <a href="tel:+380999999999" class="question__tel">
+                          <img src="assets/images/sprite.svg#phone" alt="" />
+
+                          <span>+38 (099) 999-99-99</span>
+                        </a>
+                        <button
+                          onclick="togglePopup('popup-question')"
+                          class="question__btn transparent-btn"
+                        >
+                          Задать вопрос
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+              <div class="col-md-8 col-lg-9 order-0 order-md-1">
+                <div class="catalog__inner">
+                  <div class="catalog__brand brand">
+                    <div
+                      class="brand__container swiper-container"
+                      id="brand__slider"
+                    >
+                      <div class="brand__wrapper swiper-wrapper">
+                        <a href="#" class="brand__item swiper-slide">
+                          <img
+                            loading="lazy"
+                            src="assets/images/dyka.png"
+                            alt=""
+                          />
+                        </a>
+                        <a href="#" class="brand__item swiper-slide">
+                          <img
+                            loading="lazy"
+                            src="assets/images/flexalen.png"
+                            alt=""
+                          />
+                        </a>
+                        <a href="#" class="brand__item swiper-slide active">
+                          <img
+                            loading="lazy"
+                            src="assets/images/profil.png"
+                            alt=""
+                          />
+                        </a>
+                        <a href="#" class="brand__item swiper-slide">
+                          <img
+                            loading="lazy"
+                            src="assets/images/purmo.png"
+                            alt=""
+                          />
+                        </a>
+                        <a href="#" class="brand__item swiper-slide">
+                          <img
+                            loading="lazy"
+                            src="assets/images/dyka.png"
+                            alt=""
+                          />
+                        </a>
+                        <a href="#" class="brand__item swiper-slide">
+                          <img
+                            loading="lazy"
+                            src="assets/images/flexalen.png"
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onclick="togglePopup('popup-filters-catalog')"
+                    class="catalog__filters-show filters__show"
+                  >
+                    <span>Фильтры</span>
+                    <img src="assets/images/sprite.svg#filter" alt="" />
+                  </button>
+                  <div class="catalog__products">
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="product-card">
+                      <div class="product-card__top">
+                        <span class="product-card__id">00129</span>
+                        <span class="product-card__have item-tick"
+                          >В наличии</span
+                        >
+                      </div>
+                      <div class="product-card__body">
+                        <div class="product-card__img">
+                          <img
+                            loading="lazy"
+                            src="assets/images/product.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <h3 class="product-card__title">Thermaflex</h3>
+                        <div class="product-card__par">
+                          <p>
+                            За свою историю, которую компания ведет с 1982 года,
+                            продукция PROFIL
+                          </p>
+                        </div>
+                        <span class="product-card__price">1 200 грн/м2</span>
+                      </div>
+                      <div class="product-card__bottom">
+                        <button
+                          onclick="togglePopup('popup-buy')"
+                          type="button"
+                          class="transparent-btn product-card__buy-one"
+                        >
+                          Купить в 1 клик
+                        </button>
+                        <a
+                          href="/product.html"
+                          class="accent-btn accent-btn--catalog product-card__buy"
+                        >
+                          <img
+                            src="assets/images/sprite.svg#cart-hover"
+                            alt=""
+                          />
+                          <span>Купить</span>
+                        </a>
+                      </div>
+                      <div class="product-card__descr">
+                        <ul>
+                          <li>
+                            <span class="weight-500">Теплопроводность:</span>
+                            435263
+                          </li>
+                          <li>
+                            <span class="weight-500">Рабоча температура:</span>
+                            от -80°C до + 95°C
+                          </li>
+                          <li>
+                            <span class="weight-500">Клас горючести:</span> Г1,
+                            РП1>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#" class="white-btn catalog__more">
+                    <span>Показать еще</span>
+                    <img src="assets/images/sprite.svg#refresh" alt="" />
+                  </a>
+                  <div class="catalog__pagination">
+                    <ul>
+                      <li><a href="#" class="simple-arrow"><img src="assets/images/sprite.svg#arrow" alt="" /></a></li>
+                      <li class="active"><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li>..</li>
+                      <li><a href="#">14</a></li>
+                      <li><a href="#" class="simple-arrow"><img src="assets/images/sprite.svg#arrow" alt="" /></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="help-choice d-none d-md-block">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="help-choice__major">
+                <div class="help-choice__major-text">
+                  <h2 class="help-choice__title">
+                    Помощь в
+                    <span class="weight-700">выборе и расчете</span> материалов
+                  </h2>
+                  <button
+                    onclick="togglePopup('popup-question')"
+                    class="help-choice__btn accent-btn"
+                  >
+                    Запросить расчет материалов?
+                  </button>
+                </div>
+                <div class="help-choice__img">
+                  <img
+                    loading="lazy"
+                    src="assets/images/calculator.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="help-choice__minor">
+                <h2 class="help-choice__title">
+                  <span class="weight-700">Технический</span> отдел
+                </h2>
+                <a href="tel:+380442995707" class="help-choice__tel"
+                  >+ 38 (044) 299 57 07</a
+                >
+                <ul class="help-choice__list">
+                  <li>Какой материал выбрать?</li>
+                  <li>Как правильно смонтировать?</li>
+                  <li>Сколько материала требуется?</li>
+                  <li>Как условия эксплуатации?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="other-products">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-10">
+              <h2 class="other-products__title upp-title">
+                С этими товарами выбирают, аксессуары
+              </h2>
+            </div>
+            <div class="col-md-2">
+              <div class="other-products__buttons-container">
+                <div
+                  class="swiper-button-prev other-products__button-prev simple-arrow"
+                  id="other-products__button-prev"
+                >
+                  <img src="assets/images/sprite.svg#arrow" alt="" />
+                </div>
+                <div
+                  class="swiper-button-next other-products__button-next simple-arrow"
+                  id="other-products__button-next"
+                >
+                  <img src="assets/images/sprite.svg#arrow" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="other-products__slider swiper-container"
+            id="other-products__slider"
+          >
+            <div class="other-products__wrapper swiper-wrapper">
+              <div class="other-products__slide product-card swiper-slide">
+                <div class="product-card__top">
+                  <span class="product-card__id">00129</span>
+                  <span class="product-card__have item-tick">В наличии</span>
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__img">
+                    <img
+                      loading="lazy"
+                      src="assets/images/single-product.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 class="product-card__title">Thermaflex</h3>
+                  <div class="product-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL
+                    </p>
+                  </div>
+                  <span class="product-card__price">1 200 грн/м2</span>
+                </div>
+                <div class="product-card__bottom">
+                  <button
+                    onclick="togglePopup('popup-buy')"
+                    class="transparent-btn product-card__buy-one"
+                  >
+                    Купить в 1 клик
+                  </button>
+                  <a
+                    href="/product.html"
+                    class="accent-btn accent-btn--catalog product-card__buy"
+                  >
+                    <img src="assets/images/sprite.svg#cart-hover" alt="" />
+
+                    <span>Купить</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-products__slide product-card swiper-slide">
+                <div class="product-card__top">
+                  <span class="product-card__id">00129</span>
+                  <span
+                    class="product-card__have item-tick product-card__have--orange"
+                    >Ожидается</span
+                  >
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__img">
+                    <img
+                      loading="lazy"
+                      src="assets/images/single-product.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 class="product-card__title">Thermaflex</h3>
+                  <div class="product-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL
+                    </p>
+                  </div>
+                  <span class="product-card__price">1 200 грн/м2</span>
+                </div>
+                <div class="product-card__bottom">
+                  <button
+                    onclick="togglePopup('popup-buy')"
+                    class="transparent-btn product-card__buy-one"
+                  >
+                    Купить в 1 клик
+                  </button>
+                  <a
+                    href="/product.html"
+                    class="accent-btn accent-btn--catalog product-card__buy"
+                  >
+                    <img src="assets/images/sprite.svg#cart-hover" alt="" />
+
+                    <span>Купить</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-products__slide product-card swiper-slide">
+                <div class="product-card__top">
+                  <span class="product-card__id">00129</span>
+                  <span class="product-card__have product-card__have--orange"
+                    >Заканчивается</span
+                  >
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__img">
+                    <img
+                      loading="lazy"
+                      src="assets/images/product.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 class="product-card__title">Thermaflex</h3>
+                  <div class="product-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL
+                    </p>
+                  </div>
+                  <span class="product-card__price">1 200 грн/м2</span>
+                </div>
+                <div class="product-card__bottom">
+                  <button
+                    onclick="togglePopup('popup-buy')"
+                    class="transparent-btn product-card__buy-one"
+                  >
+                    Купить в 1 клик
+                  </button>
+                  <a
+                    href="/product.html"
+                    class="accent-btn accent-btn--catalog product-card__buy"
+                  >
+                    <img src="assets/images/sprite.svg#cart-hover" alt="" />
+
+                    <span>Купить</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-products__slide product-card swiper-slide">
+                <div class="product-card__top">
+                  <span class="product-card__id">00129</span>
+                  <span class="product-card__have product-card__have--grey"
+                    >Нет в наличии</span
+                  >
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__img">
+                    <img
+                      loading="lazy"
+                      src="assets/images/product.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 class="product-card__title">Thermaflex</h3>
+                  <div class="product-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL
+                    </p>
+                  </div>
+                  <span class="product-card__price">1 200 грн/м2</span>
+                </div>
+                <div class="product-card__bottom">
+                  <button
+                    onclick="togglePopup('popup-buy')"
+                    class="transparent-btn product-card__buy-one"
+                  >
+                    Купить в 1 клик
+                  </button>
+                  <a
+                    href="/product.html"
+                    class="accent-btn accent-btn--catalog product-card__buy"
+                  >
+                    <img src="assets/images/sprite.svg#cart-hover" alt="" />
+
+                    <span>Купить</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-products__slide product-card swiper-slide">
+                <div class="product-card__top">
+                  <span class="product-card__id">00129</span>
+                  <span class="product-card__have product-card__have--orange"
+                    >Нет в наличии</span
+                  >
+                </div>
+                <div class="product-card__body">
+                  <div class="product-card__img">
+                    <img
+                      loading="lazy"
+                      src="assets/images/single-product.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <h3 class="product-card__title">Thermaflex</h3>
+                  <div class="product-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL
+                    </p>
+                  </div>
+                  <span class="product-card__price">1 200 грн/м2</span>
+                </div>
+                <div class="product-card__bottom">
+                  <button
+                    onclick="togglePopup('popup-buy')"
+                    class="transparent-btn product-card__buy-one"
+                  >
+                    Купить в 1 клик
+                  </button>
+                  <a
+                    href="/product.html"
+                    class="accent-btn accent-btn--catalog product-card__buy"
+                  >
+                    <img src="assets/images/sprite.svg#cart-hover" alt="" />
+
+                    <span>Купить</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="other-products__pagination swiper-pagination"
+              id="other-products__pagination"
+            ></div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <a href="/catalog.html" class="white-btn other-products__more"
+                >Смотреть больше</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="other-projects">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="other-projects__top">
+                <h2 class="other-projects__title">
+                  Проекты с применением товара
+                </h2>
+                <div class="other-projects__img">
+                  <img loading="lazy" src="assets/images/logo.jpg" alt="" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="other-projects__buttons-container">
+                <div
+                  class="swiper-button-prev other-projects__button-prev simple-arrow"
+                  id="other-projects__button-prev"
+                >
+                  <img
+                    loading="lazy"
+                    src="assets/images/sprite.svg#arrow"
+                    alt=""
+                  />
+                </div>
+                <div
+                  class="swiper-button-next other-projects__button-next simple-arrow"
+                  id="other-projects__button-next"
+                >
+                  <img
+                    loading="lazy"
+                    src="assets/images/sprite.svg#arrow"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="other-projects__slider swiper-container"
+            id="other-projects__slider"
+          >
+            <div class="other-projects__wrapper swiper-wrapper">
+              <div class="other-projects__slide project-card swiper-slide">
+                <a href="/project.html" class="project-card__body">
+                  <img
+                    loading="lazy"
+                    src="assets/images/thermaflex.png"
+                    alt=""
+                    class="project-card__logo"
+                  />
+                  <img
+                    loading="lazy"
+                    src="assets/images/projects-1.jpg"
+                    alt=""
+                    class="project-card__img"
+                  />
+                  <div class="project-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL. За свою историю, которую компания ведет
+                      с 1982 года, продукция PROFIL.
+                    </p>
+                  </div>
+                </a>
+                <div class="project-card__bottom">
+                  <h3 class="project-card__title">Podol Mall, Киев</h3>
+                  <a
+                    href="/project.html"
+                    class="project-card__link accent-btn accent-btn--right"
+                  >
+                    <span>Подробнее</span>
+                    <img
+                      loading="lazy"
+                      src="assets/images/sprite.svg#arrow"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-projects__slide project-card swiper-slide">
+                <a href="/project.html" class="project-card__body">
+                  <img
+                    loading="lazy"
+                    src="assets/images/thermaflex.png"
+                    alt=""
+                    class="project-card__logo"
+                  />
+                  <img
+                    loading="lazy"
+                    src="assets/images/projects-1.jpg"
+                    alt=""
+                    class="project-card__img"
+                  />
+                  <div class="project-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL. За свою историю, которую компания ведет
+                      с 1982 года, продукция PROFIL.
+                    </p>
+                  </div>
+                </a>
+                <div class="project-card__bottom">
+                  <h3 class="project-card__title">Podol Mall, Киев</h3>
+                  <a
+                    href="/project.html"
+                    class="project-card__link accent-btn accent-btn--right"
+                  >
+                    <span>Подробнее</span>
+                    <img
+                      loading="lazy"
+                      src="assets/images/sprite.svg#arrow"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-projects__slide project-card swiper-slide">
+                <a href="/project.html" class="project-card__body">
+                  <img
+                    loading="lazy"
+                    src="assets/images/thermaflex.png"
+                    alt=""
+                    class="project-card__logo"
+                  />
+                  <img
+                    loading="lazy"
+                    src="assets/images/projects-1.jpg"
+                    alt=""
+                    class="project-card__img"
+                  />
+                  <div class="project-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL. За свою историю, которую компания ведет
+                      с 1982 года, продукция PROFIL.
+                    </p>
+                  </div>
+                </a>
+                <div class="project-card__bottom">
+                  <h3 class="project-card__title">Podol Mall, Киев</h3>
+                  <a
+                    href="/project.html"
+                    class="project-card__link accent-btn accent-btn--right"
+                  >
+                    <span>Подробнее</span>
+                    <img
+                      loading="lazy"
+                      src="assets/images/sprite.svg#arrow"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <div class="other-projects__slide project-card swiper-slide">
+                <a href="/project.html" class="project-card__body">
+                  <img
+                    loading="lazy"
+                    src="assets/images/thermaflex.png"
+                    alt=""
+                    class="project-card__logo"
+                  />
+                  <img
+                    loading="lazy"
+                    src="assets/images/projects-1.jpg"
+                    alt=""
+                    class="project-card__img"
+                  />
+                  <div class="project-card__par">
+                    <p>
+                      За свою историю, которую компания ведет с 1982 года,
+                      продукция PROFIL. За свою историю, которую компания ведет
+                      с 1982 года, продукция PROFIL.
+                    </p>
+                  </div>
+                </a>
+                <div class="project-card__bottom">
+                  <h3 class="project-card__title">Podol Mall, Киев</h3>
+                  <a
+                    href="/project.html"
+                    class="project-card__link accent-btn accent-btn--right"
+                  >
+                    <span>Подробнее</span>
+                    <img
+                      loading="lazy"
+                      src="assets/images/sprite.svg#arrow"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="other-projects__pagination swiper-pagination"
+              id="other-projects__pagination"
+            ></div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-3">
+              <a href="/projects.html" class="white-btn other-projects__more"
+                >Больше проектов тут</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-us">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-10">
+              <h2 class="about-us__title upp-title">О компании</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="about-us__par" id="about-us__par">
+                <p>
+                  На протяжении 20 лет компания ЕвроТерм выстраивала отношения с
+                  партнёрами, и сегодня мы гордимся своими долгосрочными и
+                  взаимовыгодными отношениями с ними. Каждый партнёр
+                  представляет для нас высокую ценность. Развитие долгосрочных
+                  партнерских отношений является основополагающим принципом
+                  сотрудничества с нашими дилерами в Украине. Наша задача —
+                  непрерывное интенсивное развитие вместе со своими партнерами.
+                  На протяжении 20 лет компания ЕвроТерм выстраивала отношения с
+                  партнёрами, и сегодня мы гордимся своими долгосрочными и
+                  взаимовыгодными отношениями с ними. Каждый партнёр
+                  представляет для нас высокую ценность. Развитие долгосрочных
+                  партнерских отношений является основополагающим принципом
+                  сотрудничества с нашими дилерами в Украине. Наша задача —
+                  непрерывное интенсивное развитие вместе со своими партнерами.
+                </p>
+
+                <p>
+                  На протяжении 20 лет компания ЕвроТерм выстраивала отношения с
+                  партнёрами, и сегодня мы гордимся своими долгосрочными и
+                  взаимовыгодными отношениями с ними. Каждый партнёр
+                  представляет для нас высокую ценность. Развитие долгосрочных
+                  партнерских отношений является основополагающим принципом
+                  сотрудничества с нашими дилерами в Украине. Наша задача —
+                  непрерывное интенсивное развитие вместе со своими партнерами.
+                </p>
+
+                <p>
+                  На протяжении 20 лет компания ЕвроТерм выстраивала отношения с
+                  партнёрами, и сегодня мы гордимся своими долгосрочными и
+                  взаимовыгодными отношениями с ними. Каждый партнёр
+                  представляет для нас высокую ценность. Развитие долгосрочных
+                  партнерских отношений является основополагающим принципом
+                  сотрудничества с нашими дилерами в Украине. Наша задача —
+                  непрерывное интенсивное развитие вместе со своими партнерами.
+                </p>
+              </div>
+              <button
+                class="about-us__more"
+                onclick="this.previousElementSibling.classList.add('active')"
+              >
+                <span>Читать полностью</span>
+                <img
+                  loading="lazy"
+                  src="assets/images/sprite.svg#arrow"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="container-xl">
+          <div class="row">
+            <div
+              class="col-lg-3 col-md-4 col-sm-6 d-flex d-sm-block justify-content-between align-items-baseline"
+            >
+              <div class="footer__item">
+                <h3 class="footer__title">Центральный офис</h3>
+                <span>г. Киев, ул. Бориспольская, 7а</span>
+                <a href="tel:+380442908731">044 290 87 31</a>
+                <button onclick="togglePopup('popup-contact-us')">
+                  euroterm@euroterm.com.ua
+                </button>
+              </div>
+              <div class="footer__item">
+                <h3 class="footer__title">Склад</h3>
+                <a href="tel:+380444070546">044 407 05 46</a>
+                <span>ул. Жмеринская, 11/1;</span>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 d-none d-sm-block col-sm-6">
+              <div class="footer__item">
+                <h3 class="footer__title">Техническая поддержка</h3>
+                <button onclick="togglePopup('popup-contact-us')">
+                  smidl@euroterm.com.ua
+                </button>
+              </div>
+              <div class="footer__item">
+                <h3 class="footer__title">Промышленное направление</h3>
+                <button onclick="togglePopup('popup-contact-us')">
+                  euroterm@euroterm.com.ua
+                </button>
+              </div>
+            </div>
+            <div
+              class="col-lg-3 col-md-3 d-none d-sm-block col-sm-6 mt-sm-5 mt-md-0"
+            >
+              <div class="footer__item">
+                <h3 class="footer__title">Дилерское направление</h3>
+                <button onclick="togglePopup('popup-contact-us')">
+                  shcheblykin@euroterm.com.ua
+                </button>
+              </div>
+              <div class="footer__item">
+                <h3 class="footer__title">Проектное направление</h3>
+                <button onclick="togglePopup('popup-contact-us')">
+                  elena@euroterm.com.ua
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-2 d-none d-sm-block col-sm-6">
+              <div class="footer__nav">
+                <ul>
+                  <li><a href="index.html">Каталог</a></li>
+                  <li><a href="#">О компании</a></li>
+                  <li><a href="#">Бренды</a></li>
+                  <li>
+                    <a href="#">Документы</a>
+                  </li>
+                  <li><a href="#">Проекты</a></li>
+                  <li>
+                    <a href="#"
+                      >Сотрудничество</a
+                    >
+                  </li>
+                  <li><a href="#">Контакты</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-lg-3 col-md-2 col-sm-6">
+              <div class="footer__social-media social-media">
+                <span>Мы в соц сетях</span>
+                <div class="social-media__row">
+                  <a href="https://facebook.com/">
+                    <img
+                      loading="lazy"
+                      src="assets/images/sprite.svg#facebook"
+                      alt=""
+                    />
+                  </a>
+                  <a href="https://www.instagram.com/">
+                    <img
+                      loading="lazy"
+                      src="assets/images/sprite.svg#instagram"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container-xl">
+          <div class="row no-gutters justify-content-between align-self-end">
+            <div class="col-7 col-sm-4 col-md-4 col-lg-3">
+              <span class="footer__copyright">© 1994-2020 ЕвроТерм.</span>
+            </div>
+            <div class="col-5 col-sm-6 col-md-3 col-lg-2">
+              <span class="footer__made">Made by Aiken, 2018</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button class="go-up simple-arrow" onclick="goUp()" id="go-up-btn">
+      <img loading="lazy" src="assets/images/sprite.svg#arrow" alt="" />
+    </button>
+    <div class="modal" id="popup-buy">
+      <button onclick="togglePopup('popup-buy')" class="modal__area"></button>
+      <div class="modal__body">
+        <div class="modal__content">
+          <button onclick="togglePopup('popup-buy')" class="modal__close">
+            <img loading="lazy" src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <form
+            action="#"
+            onsubmit="togglePopup('popup-success');togglePopup('popup-buy')"
+            class="modal__buy modal__form modal-buy"
+          >
+            <h2 class="modal__title upp-title">Заказать в 1 клик</h2>
+            <input type="text" placeholder="Имя и фамилия" />
+            <input type="tel" placeholder="Мобильный телефон" />
+            <select>
+              <option selected hidden>Тема письма</option>
+              <option>Купить</option>
+              <option>Не купить</option>
+            </select>
+            <div class="modal__captcha">
+              <div
+                class="g-recaptcha brochure__form__captcha"
+                data-sitekey="YOUR SITE KEY"
+              ></div>
+            </div>
+            <button type="submit" class="modal__submit accent-btn">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="popup-cart">
+      <button onclick="togglePopup('popup-cart')" class="modal__area"></button>
+      <div class="modal__body">
+        <div class="modal__content modal__content--cart">
+          <button onclick="togglePopup('popup-cart')" class="modal__close">
+            <img src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <form action="#" class="modal__cart modal-cart">
+            <h2 class="modal-cart__title upp-title">Корзина</h2>
+            <div class="modal-cart__list-wrapper">
+              <div class="modal-cart__list-top">
+                <div class="modal-cart__list-img">
+                  <span>Фото</span>
+                </div>
+                <div class="modal-cart__list-name">
+                  <span>Наименование</span>
+                </div>
+                <div class="modal-cart__list-id">
+                  <span>Код товара</span>
+                </div>
+                <div class="modal-cart__list-count">
+                  <span>Количество</span>
+                </div>
+                <div class="modal-cart__list-price">
+                  <span>Цена</span>
+                </div>
+              </div>
+              <ul class="modal-cart__list">
+                <li class="modal-cart__item">
+                  <div class="modal-cart__item-img-wrapper">
+                    <div class="modal-cart__item-img">
+                      <img
+                        loading="lazy"
+                        src="assets/images/product-mini.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-cart__item-name">
+                    <span class="weight-500">Thermaflex</span>
+                    <span class="grey weight-500 modal-cart__item-count-span"
+                      >x 3шт</span
+                    >
+                  </div>
+                  <div class="modal-cart__item-id">
+                    <span class="weight-600 grey">00129</span>
+                  </div>
+                  <div class="modal-cart__item-count">
+                    <div class="modal-cart__item-count-inputs">
+                      <div class="custom-number">
+                        <input type="number" min="0" value="1" step="1" />
+                        <div class="custom-number__handlers">
+                          <img
+                            onclick="inputCustom(this, 'minus')"
+                            src="assets/images/sprite.svg#minus"
+                            alt=""
+                          />
+
+                          <img
+                            onclick="inputCustom(this, 'plus')"
+                            src="assets/images/sprite.svg#plus"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <select>
+                        <option>кв.м</option>
+                        <option>кв.м2</option>
+                        <option>кв.м3</option>
+                      </select>
+                    </div>
+                    <span>Итого кол-во: 2кв.м</span>
+                  </div>
+                  <div class="modal-cart__item-price">
+                    <span>1 200 грн/м2</span>
+                    <a href="#">
+                      <img src="assets/images/sprite.svg#trash" alt="" />
+                    </a>
+                  </div>
+                </li>
+
+                <li class="modal-cart__item">
+                  <div class="modal-cart__item-img-wrapper">
+                    <div class="modal-cart__item-img">
+                      <img
+                        loading="lazy"
+                        src="assets/images/product-mini.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-cart__item-name">
+                    <span class="weight-500">Thermaflex</span>
+                    <span class="grey weight-500 modal-cart__item-count-span"
+                      >x 3шт</span
+                    >
+                  </div>
+                  <div class="modal-cart__item-id">
+                    <span class="weight-600 grey">00129</span>
+                  </div>
+                  <div class="modal-cart__item-count">
+                    <div class="modal-cart__item-count-inputs">
+                      <div class="custom-number">
+                        <input type="number" min="0" value="1" step="1" />
+                        <div class="custom-number__handlers">
+                          <img
+                            onclick="inputCustom(this, 'minus')"
+                            src="assets/images/sprite.svg#minus"
+                            alt=""
+                          />
+                          <img
+                            onclick="inputCustom(this, 'plus')"
+                            src="assets/images/sprite.svg#plus"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <select>
+                        <option>кв.м</option>
+                        <option>кв.м2</option>
+                        <option>кв.м3</option>
+                      </select>
+                    </div>
+                    <span>Итого кол-во: 2кв.м</span>
+                  </div>
+                  <div class="modal-cart__item-price">
+                    <span>1 200 грн/м2</span>
+                    <a href="#">
+                      <img src="assets/images/sprite.svg#trash" alt="" />
+                    </a>
+                  </div>
+                </li>
+
+                <li class="modal-cart__item">
+                  <div class="modal-cart__item-img-wrapper">
+                    <div class="modal-cart__item-img">
+                      <img
+                        loading="lazy"
+                        src="assets/images/product-mini.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-cart__item-name">
+                    <span class="weight-500">Thermaflex</span>
+                    <span class="grey weight-500 modal-cart__item-count-span"
+                      >x 3шт</span
+                    >
+                  </div>
+                  <div class="modal-cart__item-id">
+                    <span class="weight-600 grey">00129</span>
+                  </div>
+                  <div class="modal-cart__item-count">
+                    <div class="modal-cart__item-count-inputs">
+                      <div class="custom-number">
+                        <input type="number" min="0" value="1" step="1" />
+                        <div class="custom-number__handlers">
+                          <img
+                            onclick="inputCustom(this, 'minus')"
+                            src="assets/images/sprite.svg#minus"
+                            alt=""
+                          />
+                          <img
+                            onclick="inputCustom(this, 'plus')"
+                            src="assets/images/sprite.svg#plus"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <select>
+                        <option>кв.м</option>
+                        <option>кв.м2</option>
+                        <option>кв.м3</option>
+                      </select>
+                    </div>
+                    <span>Итого кол-во: 2кв.м</span>
+                  </div>
+                  <div class="modal-cart__item-price">
+                    <span>1 200 грн/м2</span>
+                    <a href="#">
+                      <img src="assets/images/sprite.svg#trash" alt="" />
+                    </a>
+                  </div>
+                </li>
+
+                <li class="modal-cart__item">
+                  <div class="modal-cart__item-img-wrapper">
+                    <div class="modal-cart__item-img">
+                      <img
+                        loading="lazy"
+                        src="assets/images/product-mini.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-cart__item-name">
+                    <span class="weight-500">Thermaflex</span>
+                    <span class="grey weight-500 modal-cart__item-count-span"
+                      >x 3шт</span
+                    >
+                  </div>
+                  <div class="modal-cart__item-id">
+                    <span class="weight-600 grey">00129</span>
+                  </div>
+                  <div class="modal-cart__item-count">
+                    <div class="modal-cart__item-count-inputs">
+                      <div class="custom-number">
+                        <input type="number" min="0" value="1" step="1" />
+                        <div class="custom-number__handlers">
+                          <img
+                            onclick="inputCustom(this, 'minus')"
+                            src="assets/images/sprite.svg#minus"
+                            alt=""
+                          />
+                          <img
+                            onclick="inputCustom(this, 'plus')"
+                            src="assets/images/sprite.svg#plus"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <select>
+                        <option>кв.м</option>
+                        <option>кв.м2</option>
+                        <option>кв.м3</option>
+                      </select>
+                    </div>
+                    <span>Итого кол-во: 2кв.м</span>
+                  </div>
+                  <div class="modal-cart__item-price">
+                    <span>1 200 грн/м2</span>
+                    <a href="#">
+                      <img src="assets/images/sprite.svg#trash" alt="" />
+                    </a>
+                  </div>
+                </li>
+
+                <li class="modal-cart__item">
+                  <div class="modal-cart__item-img-wrapper">
+                    <div class="modal-cart__item-img">
+                      <img
+                        loading="lazy"
+                        src="assets/images/product-mini.jpg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="modal-cart__item-name">
+                    <span class="weight-500">Thermaflex</span>
+                    <span class="grey weight-500 modal-cart__item-count-span"
+                      >x 3шт</span
+                    >
+                  </div>
+                  <div class="modal-cart__item-id">
+                    <span class="weight-600 grey">00129</span>
+                  </div>
+                  <div class="modal-cart__item-count">
+                    <div class="modal-cart__item-count-inputs">
+                      <div class="custom-number">
+                        <input type="number" min="0" value="1" step="1" />
+                        <div class="custom-number__handlers">
+                          <img
+                            onclick="inputCustom(this, 'minus')"
+                            src="assets/images/sprite.svg#minus"
+                            alt=""
+                          />
+                          <img
+                            onclick="inputCustom(this, 'plus')"
+                            src="assets/images/sprite.svg#plus"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <select>
+                        <option>кв.м</option>
+                        <option>кв.м2</option>
+                        <option>кв.м3</option>
+                      </select>
+                    </div>
+                    <span>Итого кол-во: 2кв.м</span>
+                  </div>
+                  <div class="modal-cart__item-price">
+                    <span>1 200 грн/м2</span>
+                    <a href="#">
+                      <img src="assets/images/sprite.svg#trash" alt="" />
+                    </a>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="modal-cart__empty">
+                <!--показывать когда корзина пустая-->
+                <h3 class="modal-cart__empty-title">
+                  На данный момент корзина пуста :(
+                </h3>
+                <a href="/catalog.html" class="accent-btn modal-cart__empty-btn"
+                  >Перейти в каталог</a
+                >
+              </div>
+            </div>
+            <div class="modal-cart__bottom">
+              <div class="modal-cart__total checkout__cart-total-wrapper">
+                <ul class="checkout__cart-total">
+                  <li class="checkout__cart-total-item">
+                    <span class="weight-500">Итого:</span>
+                    <span class="weight-700 green-title">14 600 грн</span>
+                  </li>
+                </ul>
+                <div class="checkout__cart-bottom">
+                  <p>* Цена действительна при заказе с сайта</p>
+                  <a href="/checkout.html" class="checkout__cart-btn accent-btn"
+                    >Подтвердить заказ</a
+                  >
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <form
+            action="#"
+            onsubmit="togglePopup('popup-success')"
+            class="modal-cart__buy single-product__handler-buy"
+          >
+            <h2>Купить в 1 клик</h2>
+            <div>
+              <input type="tel" placeholder="+ 38 (___) ___ __ __" />
+              <button
+                type="submit"
+                class="transparent-btn single-product__btn-tel"
+              >
+                Перезвоните мне
+              </button>
+            </div>
+          </form>
+          <section class="help-choice d-none d-md-block">
+            <div class="container-xl">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="help-choice__major">
+                    <div class="help-choice__major-text">
+                      <h2 class="help-choice__title">
+                        Помощь в
+                        <span class="weight-700">выборе и расчете</span>
+                        материалов
+                      </h2>
+                      <button
+                        onclick="togglePopup('popup-question')"
+                        class="help-choice__btn accent-btn"
+                      >
+                        Запросить расчет материалов?
+                      </button>
+                    </div>
+                    <div class="help-choice__img">
+                      <img
+                        loading="lazy"
+                        src="assets/images/calculator.png"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="help-choice__minor">
+                    <h2 class="help-choice__title">
+                      <span class="weight-700">Технический</span> отдел
+                    </h2>
+                    <a href="tel:+380442995707" class="help-choice__tel"
+                      >+ 38 (044) 299 57 07</a
+                    >
+                    <ul class="help-choice__list">
+                      <li>Какой материал выбрать?</li>
+                      <li>Как правильно смонтировать?</li>
+                      <li>Сколько материала требуется?</li>
+                      <li>Как условия эксплуатации?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section class="help-choice d-md-none">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="help-choice__major">
+                <div class="help-choice__major-text">
+                  <h2 class="help-choice__title">
+                    Помощь в
+                    <span class="weight-700">выборе и расчете</span> материалов
+                  </h2>
+                  <button
+                    onclick="togglePopup('popup-question')"
+                    class="help-choice__btn accent-btn"
+                  >
+                    Запросить расчет материалов?
+                  </button>
+                </div>
+                <div class="help-choice__img">
+                  <img
+                    loading="lazy"
+                    src="assets/images/calculator.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="help-choice__minor">
+                <h2 class="help-choice__title">
+                  <span class="weight-700">Технический</span> отдел
+                </h2>
+                <a href="tel:+380442995707" class="help-choice__tel"
+                  >+ 38 (044) 299 57 07</a
+                >
+                <ul class="help-choice__list">
+                  <li>Какой материал выбрать?</li>
+                  <li>Как правильно смонтировать?</li>
+                  <li>Сколько материала требуется?</li>
+                  <li>Как условия эксплуатации?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="modal" id="popup-contact-us">
+      <button
+        onclick="togglePopup('popup-contact-us')"
+        class="modal__area"
+      ></button>
+      <div class="modal__body">
+        <div class="modal__content">
+          <button
+            onclick="togglePopup('popup-contact-us')"
+            class="modal__close"
+          >
+            <img src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <form
+            action="#"
+            onsubmit="togglePopup('popup-success');togglePopup('popup-contact-us')"
+            class="modal__contact-us modal__form modal-contact-us"
+          >
+            <h2 class="modal__title upp-title">Связаться с нами</h2>
+            <input type="text" placeholder="Имя и фамилия" />
+            <input type="tel" placeholder="Мобильный телефон" />
+            <select>
+              <option selected hidden>Тема письма</option>
+              <option>Купить</option>
+              <option>Не купить</option>
+            </select>
+            <textarea placeholder="Письмо"></textarea>
+            <div class="modal__captcha">
+              <div
+                class="g-recaptcha brochure__form__captcha"
+                data-sitekey="YOUR SITE KEY"
+              ></div>
+            </div>
+            <button type="submit" class="modal__submit accent-btn">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="popup-filters-catalog">
+      <button
+        onclick="togglePopup('popup-filters-catalog')"
+        class="modal__area"
+      ></button>
+      <div class="modal__body">
+        <div class="modal__content modal__content--small">
+          <button
+            onclick="togglePopup('popup-filters-catalog')"
+            class="modal__close"
+          >
+            <img src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <div
+            class="modal__filters modal-filters-catalog filters"
+            id="filters-mobile"
+          >
+            <div class="filters__inner">
+              <h2 class="filters__title">Фильтры</h2>
+              <div class="filters__accord active">
+                <div
+                  class="filters__accord-top"
+                  onclick="this.parentNode.classList.toggle('active')"
+                >
+                  <span>Тип инженерной системы</span>
+                  <img
+                    loading="lazy"
+                    src="assets/images/sprite.svg#arrow"
+                    alt=""
+                  />
+                </div>
+                <div class="filters__accord-content">
+                  <ul>
+                    <li>
+                      <label>
+                        <input type="checkbox" />
+                        <span>Наружные инженерные системы (2)</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label
+                        ><input type="checkbox" /><span
+                          >Внутренние инженерные системы (2)</span
+                        ></label
+                      >
+                    </li>
+                    <li>
+                      <label
+                        ><input type="checkbox" /><span
+                          >Техническая изоляция (2)</span
+                        ></label
+                      >
+                    </li>
+                    <li>
+                      <label
+                        ><input type="checkbox" /><span
+                          >Спец решения (2)</span
+                        ></label
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="filters__accord active">
+                <div
+                  class="filters__accord-top"
+                  onclick="this.parentNode.classList.toggle('active')"
+                >
+                  <span>Цена</span>
+                  <img
+                    loading="lazy"
+                    src="assets/images/sprite.svg#arrow"
+                    alt=""
+                  />
+                </div>
+                <div class="filters__accord-content">
+                  <div
+                    class="filters__range"
+                    id="filters__range-mobile"
+                    data-min="0"
+                    data-max="50000"
+                  ></div>
+                  <div
+                    class="filters__range-inputs"
+                    id="filters__range-inputs-mobile"
+                  >
+                    <input type="text" value="0" />
+                    <input type="text" value="50000" />
+                  </div>
+                </div>
+              </div>
+              <div class="filters__accord">
+                <div
+                  class="filters__accord-top"
+                  onclick="this.parentNode.classList.toggle('active')"
+                >
+                  <span>Производитель</span>
+                  <img
+                    loading="lazy"
+                    src="assets/images/sprite.svg#arrow"
+                    alt=""
+                  />
+                </div>
+                <div class="filters__accord-content">
+                  <ul>
+                    <li>
+                      <label>
+                        <input type="checkbox" />
+                        <span>Производитель 1</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label
+                        ><input type="checkbox" /><span
+                          >Производитель 2</span
+                        ></label
+                      >
+                    </li>
+                    <li>
+                      <label
+                        ><input type="checkbox" /><span
+                          >Производитель 3</span
+                        ></label
+                      >
+                    </li>
+                    <li>
+                      <label
+                        ><input type="checkbox" /><span
+                          >Производитель 4</span
+                        ></label
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="filters__accord">
+                <div
+                  class="filters__accord-top"
+                  onclick="this.parentNode.classList.toggle('active')"
+                >
+                  <span>Тип товара</span>
+                  <img
+                    loading="lazy"
+                    src="assets/images/sprite.svg#arrow"
+                    alt=""
+                  />
+                </div>
+                <div class="filters__accord-content">
+                  <ul>
+                    <li>
+                      <label>
+                        <input type="checkbox" />
+                        <span>Тип 1</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label><input type="checkbox" /><span>Тип 2</span></label>
+                    </li>
+                    <li>
+                      <label><input type="checkbox" /><span>Тип 3</span></label>
+                    </li>
+                    <li>
+                      <label><input type="checkbox" /><span>Тип 4</span></label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button
+                onclick="clearRangeMobile()"
+                class="filters__clear smoke-btn"
+              >
+                <img src="assets/images/sprite.svg#trash" alt="" />
+
+                <span>Очистить фильтр</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="popup-question">
+      <button
+        onclick="togglePopup('popup-question')"
+        class="modal__area"
+      ></button>
+      <div class="modal__body">
+        <div class="modal__content modal__content--large">
+          <button onclick="togglePopup('popup-question')" class="modal__close">
+            <img src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <form
+            action="#"
+            onsubmit="togglePopup('popup-success');togglePopup('popup-question')"
+            class="modal__question modal__form modal-question"
+          >
+            <h2 class="modal__title upp-title">
+              Задайте вопрос нашим экспертам!
+            </h2>
+            <div class="modal__inputs modal-question__inputs">
+              <input type="text" placeholder="Имя и фамилия" />
+              <input type="tel" placeholder="Мобильный телефон" />
+            </div>
+
+            <textarea placeholder="Тема письма"></textarea>
+
+            <div class="modal-question__file">
+              <label>
+                <input type="file" />
+                <span class="file__cover white-btn">Прикрепить файл</span>
+              </label>
+
+              <span class="grey"
+                >Файл в формате .jpeg, .png, .pdf, .doc, .xls до 2 Mb</span
+              >
+            </div>
+
+            <div class="modal__captcha">
+              <div
+                class="g-recaptcha brochure__form__captcha"
+                data-sitekey="YOUR SITE KEY"
+              ></div>
+            </div>
+            <button type="submit" class="modal__submit accent-btn">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="popup-subscription">
+      <button
+        onclick="togglePopup('popup-subscription')"
+        class="modal__area"
+      ></button>
+      <div class="modal__body">
+        <div class="modal__content modal__content--large">
+          <button
+            onclick="togglePopup('popup-subscription')"
+            class="modal__close"
+          >
+            <img src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <form
+            action="#"
+            class="modal__subscription modal__form modal-subscription"
+          >
+            <h2 class="modal__title upp-title">Подписаться на новости</h2>
+
+            <div class="modal__inputs modal-question__inputs">
+              <input type="text" placeholder="Имя и фамилия" />
+              <input type="email" placeholder="E-mail" />
+            </div>
+
+            <button type="submit" class="modal__submit accent-btn">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="popup-success">
+      <button
+        onclick="togglePopup('popup-success')"
+        class="modal__area"
+      ></button>
+      <div class="modal__body">
+        <div class="modal__content">
+          <button onclick="togglePopup('popup-success')" class="modal__close">
+            <img src="assets/images/sprite.svg#close" alt="" />
+          </button>
+          <div class="modal__success modal__form modal-success">
+            <div class="modal-success__inner">
+              <div class="modal-success__img">
+                <img src="assets/images/sprite.svg#check" alt="" />
+              </div>
+              <h2 class="modal-success__title upp-title">Cпасибо</h2>
+              <p>Мы свяжемся с Вами в ближайщее время</p>
+
+              <button
+                type="submit"
+                onclick="togglePopup('popup-success')"
+                class="modal__submit modal-success__btn accent-btn"
+              >
+                Вернуться назад
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svgxuse/1.2.6/svgxuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.from%2CNodeList.prototype.forEach"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+    <!--<script async defer src="https://www.google.com/recaptcha/api.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.5/imask.min.js"></script>
+    <script>
+      let firstScreenSlider = new Swiper("#first-screen__slider", {
+        lazy: true,
+        slidesPerView: 1,
+        speed: 1000,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: true,
+        },
+        pagination: {
+          el: "#first-screen__pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: "#first-screen__button-next",
+          prevEl: "#first-screen__button-prev",
+        },
+      });
+
+      let otherProductsSlider = new Swiper("#other-products__slider", {
+        lazy: true,
+        slidesPerView: 1,
+        speed: 1000,
+        spaceBetween: 30,
+        pagination: {
+          el: "#other-products__pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: "#other-products__button-next",
+          prevEl: "#other-products__button-prev",
+        },
+        breakpoints: {
+          576: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1200: {
+            slidesPerView: 4,
+          },
+        },
+      });
+
+      let otherProjectsSlider = new Swiper("#other-projects__slider", {
+        lazy: true,
+        slidesPerView: 1,
+        speed: 1000,
+        spaceBetween: 30,
+        pagination: {
+          el: "#other-projects__pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: "#other-projects__button-next",
+          prevEl: "#other-projects__button-prev",
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            pagination: false,
+          },
+        },
+      });
+
+      let filterTypeSlider = new Swiper("#filter-type__slider", {
+        lazy: true,
+        slidesPerView: 4,
+        speed: 1000,
+        navigation: {
+          prevEl: "#filter-type__button-prev",
+          nextEl: "#filter-type__button-next",
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: 5,
+          },
+          1221: {
+            slidesPerView: "auto",
+          },
+        },
+      });
+
+      let brandSlider = new Swiper("#brand__slider", {
+        lazy: true,
+        slidesPerView: 2,
+        speed: 1000,
+        breakpoints: {
+          992: {
+            slidesPerView: 3,
+          },
+          1200: {
+            slidesPerView: 4,
+          },
+        },
+      });
+
+      let singleProductSliderAll = new Swiper("#single-product__slider-all", {
+        lazy: true,
+        slidesPerView: 4,
+        speed: 1000,
+        spaceBetween: 12,
+        freeMode: true,
+      });
+
+      let singleProductSlider = new Swiper("#single-product__slider", {
+        lazy: true,
+        slidesPerView: 1,
+        speed: 1000,
+        spaceBetween: 10,
+        thumbs: {
+          swiper: singleProductSliderAll,
+        },
+        navigation: {
+          prevEl: "#single-product__button-prev",
+          nextEl: "#single-product__button-next",
+        },
+      });
+
+      let reviewsSlider = new Swiper("#reviews__slider", {
+        direction: "horizontal",
+        slidesPerView: 1,
+        freeMode: false,
+        autoHeight: true,
+        //grabCursor: true,
+        mousewheel: true,
+        scrollbar: {
+          el: "#reviews__scrollbar",
+        },
+        pagination: {
+          el: "#reviews__pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          576: {
+            slidesPerView: "auto",
+            direction: "vertical",
+            freeMode: true,
+            autoHeight: false,
+          },
+
+          1200: {
+            slidesPerView: "auto",
+            direction: "vertical",
+            freeMode: false,
+            autoHeight: false,
+          },
+        },
+      });
+
+      let filtersRange = document.getElementById("filters__range");
+
+      if (filtersRange) {
+        let filtersRangeInputs = Array.from(
+          document.getElementById("filters__range-inputs").children
+        );
+        noUiSlider.create(filtersRange, {
+          start: [
+            +filtersRangeInputs[0].value,
+            +filtersRangeInputs[filtersRangeInputs.length - 1].value,
+          ],
+          connect: true,
+          behaviour: "drag-tap",
+          step: 1,
+          range: {
+            min: +filtersRange.getAttribute("data-min"),
+            max: +filtersRange.getAttribute("data-max"),
+          },
+          /*format: {
+                  to: function (value) {
+                        //Number.parseInt(value).toLocaleString('ru') + ' ₴'
+                        return Math.round(value) + ' ₴';
+                  },
+                  from: function (value) {
+                        return Number(value.replace(' ₴', ''));
+                  }
+            }*/
+          format: wNumb({
+            decimals: 0,
+            thousand: " ",
+            //prefix: '₴ ',
+          }),
+        });
+
+        filtersRange.noUiSlider.on("update", function (values, handle) {
+          filtersRangeInputs[handle].value = values[handle];
+        });
+
+        //function setFiltersRange(i, value) {
+        //      let arr = [null, null];
+        //      arr[i] = value;
+
+        //      filtersRange.noUiSlider.set(arr);
+        //};
+
+        //filtersRangeInputs.forEach((el, index) => {
+        //      el.addEventListener('input', (e) => {
+        //            setFiltersRange(index, e.currentTarget.value);
+        //      });
+        //});
+
+        // Listen to keydown events on the input field.
+        filtersRangeInputs.forEach(function (input, handle) {
+          input.addEventListener("change", function () {
+            filtersRange.noUiSlider.setHandle(handle, this.value);
+          });
+
+          input.addEventListener("keydown", function (e) {
+            var values = filtersRange.noUiSlider.get();
+            var value = Number(values[handle]);
+
+            // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
+            var steps = filtersRange.noUiSlider.steps();
+
+            // [down, up]
+            var step = steps[handle];
+
+            var position;
+
+            // 13 is enter,
+            // 38 is key up,
+            // 40 is key down.
+            switch (e.which) {
+              case 13:
+                filtersRange.noUiSlider.setHandle(handle, this.value);
+                break;
+
+              case 38:
+                // Get step to go increase slider value (up)
+                position = step[1];
+
+                // false = no step is set
+                if (position === false) {
+                  position = 1;
+                }
+
+                // null = edge of slider
+                if (position !== null) {
+                  filtersRange.noUiSlider.setHandle(handle, value + position);
+                }
+
+                break;
+
+              case 40:
+                position = step[0];
+
+                if (position === false) {
+                  position = 1;
+                }
+
+                if (position !== null) {
+                  filtersRange.noUiSlider.setHandle(handle, value - position);
+                }
+
+                break;
+            }
+          });
+        });
+      }
+
+      let filtersRangeMobile = document.getElementById("filters__range-mobile");
+
+      if (filtersRangeMobile) {
+        let filtersRangeInputsMobile = Array.from(
+          document.getElementById("filters__range-inputs-mobile").children
+        );
+
+        noUiSlider.create(filtersRangeMobile, {
+          start: [
+            +filtersRangeInputsMobile[0].value,
+            +filtersRangeInputsMobile[filtersRangeInputsMobile.length - 1]
+              .value,
+          ],
+          connect: true,
+          behaviour: "drag-tap",
+          step: 1,
+          range: {
+            min: +filtersRangeMobile.getAttribute("data-min"),
+            max: +filtersRangeMobile.getAttribute("data-max"),
+          },
+          /*format: {
+                  to: function (value) {
+                        //Number.parseInt(value).toLocaleString('ru') + ' ₴'
+                        return Math.round(value) + ' ₴';
+                  },
+                  from: function (value) {
+                        return Number(value.replace(' ₴', ''));
+                  }
+            }*/
+          format: wNumb({
+            decimals: 0,
+            thousand: " ",
+            //prefix: '₴ ',
+          }),
+        });
+
+        filtersRangeMobile.noUiSlider.on("update", function (values, handle) {
+          filtersRangeInputsMobile[handle].value = values[handle];
+        });
+
+        //function setFiltersRangeMobile(i, value) {
+        //      let arr = [null, null];
+        //      arr[i] = value;
+
+        //      filtersRangeMobile.noUiSlider.set(arr);
+        //};
+
+        //filtersRangeInputsMobile.forEach((el, index) => {
+        //      el.addEventListener('input', (e) => {
+        //            setFiltersRangeMobile(index, e.currentTarget.value);
+        //      });
+        //});
+
+        // Listen to keydown events on the input field.
+        filtersRangeInputsMobile.forEach(function (input, handle) {
+          input.addEventListener("change", function () {
+            filtersRangeMobile.noUiSlider.setHandle(handle, this.value);
+          });
+
+          input.addEventListener("keydown", function (e) {
+            var values = filtersRangeMobile.noUiSlider.get();
+            var value = Number(values[handle]);
+
+            // [[handle0_down, handle0_up], [handle1_down, handle1_up]]
+            var steps = filtersRangeMobile.noUiSlider.steps();
+
+            // [down, up]
+            var step = steps[handle];
+
+            var position;
+
+            // 13 is enter,
+            // 38 is key up,
+            // 40 is key down.
+            switch (e.which) {
+              case 13:
+                filtersRangeMobile.noUiSlider.setHandle(handle, this.value);
+                break;
+
+              case 38:
+                // Get step to go increase slider value (up)
+                position = step[1];
+
+                // false = no step is set
+                if (position === false) {
+                  position = 1;
+                }
+
+                // null = edge of slider
+                if (position !== null) {
+                  filtersRangeMobile.noUiSlider.setHandle(
+                    handle,
+                    value + position
+                  );
+                }
+
+                break;
+
+              case 40:
+                position = step[0];
+
+                if (position === false) {
+                  position = 1;
+                }
+
+                if (position !== null) {
+                  filtersRangeMobile.noUiSlider.setHandle(
+                    handle,
+                    value - position
+                  );
+                }
+
+                break;
+            }
+          });
+        });
+      }
+
+      function clearRange() {
+        let filters = document.querySelectorAll("#filters input");
+
+        filters.forEach(function (item) {
+          item.value = item.getAttribute("value") || 0;
+          item.checked = false;
+        });
+
+        filtersRange.noUiSlider.updateOptions({
+          start: [
+            +filtersRange.getAttribute("data-min"),
+            +filtersRange.getAttribute("data-max"),
+          ],
+        });
+      }
+
+      function clearRangeMobile() {
+        let filters = document.querySelectorAll("#filters-mobile input");
+
+        filters.forEach(function (item) {
+          item.value = item.getAttribute("value") || 0;
+          item.checked = false;
+        });
+
+        filtersRangeMobile.noUiSlider.updateOptions({
+          start: [
+            +filtersRangeMobile.getAttribute("data-min"),
+            +filtersRangeMobile.getAttribute("data-max"),
+          ],
+        });
+      }
+
+      function changeRating(_this) {
+        document.querySelectorAll(".star").forEach(function (item) {
+          item.style.fill = "#FFF";
+        });
+
+        for (let i = 1; i <= +_this.getAttribute("value"); i++) {
+          document.getElementById("star-" + i).style.fill = "#FFC700";
+        }
+      }
+
+      function changeRatingMobile(_this) {
+        document.querySelectorAll(".star").forEach(function (item) {
+          item.style.fill = "#E4F1F1";
+        });
+
+        for (let i = 1; i <= +_this.getAttribute("value"); i++) {
+          document.getElementById("star-" + i + "-mobile").style.fill =
+            "#FFC700";
+        }
+      }
+
+      function togglePopup(id) {
+        const modal = document.getElementById(id);
+
+        if (modal) {
+          modal.classList.toggle("active");
+
+          document.body.style.overflow =
+            document.body.style.overflow == "hidden" ? "visible" : "hidden";
+        } else {
+          console.error('The modal window by id "' + id + '" not found!');
+        }
+      }
+
+      function inputCustom(_this, handler) {
+        if (handler == "minus") {
+          if (_this.parentNode.previousElementSibling.value != 0) {
+            _this.parentNode.previousElementSibling.value--;
+          }
+        }
+
+        if (handler == "plus") {
+          _this.parentNode.previousElementSibling.value++;
+        }
+      }
+
+      function langChange() {
+        let langCheckbox = document.getElementById("switch-lang__checkbox");
+        let langUA = document.getElementById("switch-lang__ua");
+        let langRU = document.getElementById("switch-lang__ru");
+        if (langCheckbox.checked) {
+          langUA.style.color = "#000000";
+          langRU.style.color = "#2F675C";
+        } else {
+          langUA.style.color = "#2F675C";
+          langRU.style.color = "#000000";
+        }
+      }
+
+      function tabChange(_this, target, trigger, content) {
+        document.querySelectorAll(trigger).forEach(function (item) {
+          item.classList.remove("active");
+          item.classList.toggle("wait");
+        });
+
+        document.querySelectorAll(content).forEach(function (item) {
+          item.style.display = "none";
+        });
+
+        _this.classList.add("active");
+
+        document.getElementById(target).style.display = "block";
+      }
+
+      function burgerChange() {
+        let burger = document.getElementById("header__burger");
+        let heeaderMenu = document.getElementById("header__menu");
+        let headerNav = document.getElementById("header__nav");
+        let overlay = document.getElementById("overlay");
+
+        burger.classList.toggle("active");
+        heeaderMenu.classList.toggle("active");
+        headerNav.classList.toggle("active");
+
+        if (overlay) {
+          overlay.classList.toggle("active");
+        }
+      }
+
+      function progressBarChange() {
+        let progressBar = document.getElementById("breadcrumbs__box");
+        let progressList = document.getElementById("breadcrumbs__list");
+        let scrollTop =
+          window.scrollY ||
+          window.pageYOffset ||
+          document.documentElement.scrollTop;
+        let windowHeight = window.innerHeight;
+        let siteHeight = document.documentElement.scrollHeight;
+        let progress = Math.round(
+          (scrollTop / (siteHeight - windowHeight)) * 100
+        );
+
+        progressBar.style.width = `${progress}%`;
+
+        if (
+          progressBar.offsetLeft + progressBar.clientWidth >
+          progressList.offsetLeft + progressList.clientWidth + 50
+        ) {
+          progressList.style.color = "#fff";
+        } else {
+          progressList.style.color = "#000";
+        }
+      }
+
+      function visibleGoUp() {
+        let goUp = document.getElementById("go-up-btn");
+        const offSet = 800;
+
+        if (window.pageYOffset > offSet && goUp) {
+          goUp.classList.add("active");
+        } else {
+          goUp.classList.remove("active");
+        }
+      }
+
+      function goUp() {
+        if (
+          Math.max(
+            document.body.scrollTop,
+            document.documentElement.scrollTop
+          ) > 0
+        ) {
+          window.scrollBy(0, -50);
+          setTimeout("goUp()", 10);
+        }
+
+        progressBarChange();
+      }
+
+      document.querySelectorAll('input[type="tel"]').forEach(function (item) {
+        new IMask(item, {
+          mask: [
+            {
+              mask: "+ {38} (000) 000 00 00",
+              //  lazy: false,
+              country: "Ukraine",
+            },
+            {
+              mask: "+0 (000) 000 00 00",
+              //   lazy: false,
+              country: "unknown",
+            },
+          ],
+        });
+      });
+
+      document.querySelectorAll('input[type="email"]').forEach(function (item) {
+        new IMask(item, {
+          mask: /^\S*@?\S*$/,
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        progressBarChange();
+      });
+
+      window.addEventListener("scroll", function () {
+        progressBarChange();
+        visibleGoUp();
+      });
+    </script>
+  </body>
+</html>
