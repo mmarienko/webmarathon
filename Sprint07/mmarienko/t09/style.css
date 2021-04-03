@@ -1,0 +1,25 @@
+
+.marvel {
+    background: rgb(32, 32, 32);
+    border: 1px solid rgb(194, 22, 22);
+    padding: 7px;
+    margin-bottom: 2px;
+}
+
+.marvel__header {
+   background: rgb(12, 12, 12);
+   border: 1px solid rgb(194, 22, 22);
+   padding: 7px;
+   margin-bottom: 2px;
+   color: rgb(86, 202, 202);
+   font-weight: bold;
+}
+
+.marvel__header span {
+    color: rgb(64, 97, 52);
+ }
+
+.marvel__body {
+    margin: 7px;
+    color: #fff;
+}
