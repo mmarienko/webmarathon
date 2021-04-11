@@ -10,12 +10,8 @@
 </head>
 
 <body>
-	<p>
-		Error 404
-	</p>
-	<p>
-		<a href="/t06/">go home</a>
-	</p>
+	<p> Error 404 </p>
+	<p> <a href="/t06/">go home</a> </p>
 	<script src="script.js"></script>
 </body>
 
