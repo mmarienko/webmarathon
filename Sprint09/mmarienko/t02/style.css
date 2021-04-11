@@ -1,0 +1,17 @@
+body {
+   text-align: center;
+}
+
+.error {
+   color: red;
+}
+
+.actions {
+   margin-top: 10px;
+   display: flex;
+   justify-content: center;
+}
+
+.actions button {
+   margin: 10px;
+}
